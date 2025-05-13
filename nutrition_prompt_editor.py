@@ -1,9 +1,6 @@
 import os
 import streamlit as st
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 BASE_URI = os.getenv("BASE_URI", "")
 
