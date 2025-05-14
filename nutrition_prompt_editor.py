@@ -133,12 +133,21 @@ with left_col:
 
     selected_food_data = st.session_state.selected_food_data
     if selected_food_data:
-        st.markdown("----")
-        st.markdown(f"### 🥣 {selected_food_data['name']}: ")
+        col1, col2 = st.columns([1, 10])
+        with col1:
+            if selected_food_data['iconUrl']:
+                st.image(selected_food_data['iconUrl'], width=45)
+        with col2:
+            st.markdown(f"### {selected_food_data['name']}: ")
         st.text(f"Generated with prompt Version ({selected_food_data['genaiUsecaseId']})")
         st.text(f"Original Name (inc country match, if available): {selected_food_data['nameOrigin']}")
         st.text(f"Category: {selected_food['category']}")
-        st.text(f"Subcategory: {selected_food['subcategory']}")
+        st.text(f"Subcategory: {selected_food['subCategory']}")
         with st.container(height=500):
+            display_food_data = selected_food_data
+            display_food_data['document'] = None
+            display_food_data['genaiId'] = None
+            display_food_data['genaiUsecaseId'] = None
+            display_food_data['nutritionScore'] = f"{round(selected_food_data['nutritionScore'], 1)}%"
             st.json(selected_food_data)
 
