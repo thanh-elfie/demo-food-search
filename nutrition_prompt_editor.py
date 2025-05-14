@@ -149,5 +149,6 @@ with left_col:
             display_food_data['genaiId'] = None
             display_food_data['genaiUsecaseId'] = None
             display_food_data['nutritionScore'] = f"{round(selected_food_data['nutritionScore'], 1)}%"
+            display_food_data['organicRate'] = f"{round(selected_food_data['organicRate'], 1)}%"
             st.json(selected_food_data)
 
