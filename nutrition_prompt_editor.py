@@ -139,7 +139,7 @@ with left_col:
                 st.image(selected_food_data['iconUrl'], width=45)
         with col2:
             st.markdown(f"### {selected_food_data['name']}: ")
-        st.text(f"Generated with prompt Version ({selected_food_data['genaiUsecaseId']})")
+        st.text(f"Generated with prompt Version ({selected_food_data.get('genAIUsecaseId', '')})")
         st.text(f"Original Name (inc country match, if available): {selected_food_data['nameOrigin']}")
         st.text(f"Category: {selected_food['category']}")
         st.text(f"Subcategory: {selected_food['subCategory']}")
@@ -147,7 +147,7 @@ with left_col:
             display_food_data = selected_food_data
             display_food_data['document'] = None
             display_food_data['genaiId'] = None
-            display_food_data['genaiUsecaseId'] = None
+            display_food_data['genAIUsecaseId'] = None
             display_food_data['nutritionScore'] = f"{round(selected_food_data['nutritionScore'], 1)}%"
             display_food_data['organicRate'] = f"{round(selected_food_data['organicRate'], 1)}%"
             st.json(selected_food_data)
