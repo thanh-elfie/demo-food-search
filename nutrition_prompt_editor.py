@@ -66,7 +66,7 @@ with right_col:
             prompt_content = st.session_state.prompt
             if prompt_content.strip():
                 try:
-                    response = requests.post(f"{BASE_URI}/gen-ai/update-prompt", json={"prompt": prompt_content, "useCase": "FOOD_DATA_IMPORT"})
+                    response = requests.post(f"{BASE_URI}/gen-ai/update-prompt", json={"prompt": prompt_content, "useCase": "FOOD_DETAIL"})
                     if response.status_code == 200 or response.status_code == 201:
                         selected_food = st.session_state.selected_food
                         if selected_food:
