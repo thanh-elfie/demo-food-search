@@ -118,7 +118,7 @@ with left_col:
         st.markdown("### BEST MATCHES")
         with st.container(height=200):
             for i, food in enumerate(st.session_state.food_matches):
-                if st.button(f"{food['name']} - {food['calories_kcal']} kcal, per 100g", key=f"name_btn_{i}"):
+                if st.button(f"{food['locale2Name']['en']} - {food['calories_kcal']} kcal, per 100g", key=f"name_btn_{i}"):
                     st.session_state.selected_food = food
     else:
         st.markdown("### Search and enter to see result")
@@ -138,7 +138,7 @@ with left_col:
             if selected_food_data['iconUrl']:
                 st.image(selected_food_data['iconUrl'], width=45)
         with col2:
-            st.markdown(f"### {selected_food_data['name']}: ")
+            st.markdown(f"### {selected_food_data['locale2Name']['en']}: ")
         st.text(f"Generated with prompt Version ({selected_food_data.get('genAIUsecaseId', '')})")
         st.text(f"Category: {selected_food['category']}")
         st.text(f"Subcategory: {selected_food['subCategory']}")
