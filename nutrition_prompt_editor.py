@@ -140,7 +140,6 @@ with left_col:
         with col2:
             st.markdown(f"### {selected_food_data['name']}: ")
         st.text(f"Generated with prompt Version ({selected_food_data.get('genAIUsecaseId', '')})")
-        st.text(f"Original Name (inc country match, if available): {selected_food_data['nameOrigin']}")
         st.text(f"Category: {selected_food['category']}")
         st.text(f"Subcategory: {selected_food['subCategory']}")
         with st.container(height=500):
