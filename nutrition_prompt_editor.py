@@ -89,7 +89,7 @@ with right_col:
         st.session_state.prompt = st.text_area(f"Prompt Instructions - Version ({st.session_state.current_prompt['version']})", value=st.session_state.current_prompt['prompt'], height=700)
     else:
         try:
-            response = requests.get(f"{BASE_URI}/gen-ai/latest-prompt?useCase=FOOD_DATA_IMPORT")
+            response = requests.get(f"{BASE_URI}/gen-ai/latest-prompt?useCase=FOOD_DETAIL")
             if response.status_code == 200:
                 resp_data = response.json()
                 st.session_state.current_prompt = resp_data
